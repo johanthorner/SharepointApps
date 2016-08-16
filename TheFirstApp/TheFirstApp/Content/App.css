@@ -1,0 +1,7 @@
+﻿/* Place custom styles below */
+#FormulärDiv {
+    background-color: lightblue;
+}
+input #FormulärDiv {
+    float: left;
+}
