@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="962650b9-9772-418d-bd6b-3f58a2446d3c" 
+        solutionId="962650b9-9772-418d-bd6b-3f58a2446d3c" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="HamtaEgenskaperDemo"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="6ed8137e-b698-4337-8447-ce1f7f728b6e" />
+  </features>
+</package>

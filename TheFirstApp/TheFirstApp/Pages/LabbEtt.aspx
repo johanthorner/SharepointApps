@@ -15,40 +15,34 @@
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
 
     <!-- Add your JavaScript to the following file -->
-    <script src="../Scripts/Labb1Script.js"></script>
+    <script type ="text/javascript" src="../Scripts/Labb1Script.js"></script>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderId="PlaceHolderMain" runat="server">
     <WebPartPages:WebPartZone runat="server" FrameType="TitleBarOnly" ID="full" Title="loc:full" />
     <p>hej</p>
-    <div id="FormulärDiv">
-        <label for="Förnamn">Förnamn</label>
-        <input type="text" id="Förnamn" /><br/>
-    
-        <label for="Efternamn">Efternamn</label>
-        <input type="text" id="Efternamn"/><br/>
-    
-        <label for="epost">Epost</label>
-        <input type="text" id="epost" /><br/>
-    
+
+        
+     <div id="FormulärDiv">
+        <label for="Förnamn">Förnamn</label>  
+        <input class="textInput" type="text" id="Förnamn" /><br/>
+        <label for="Efternamn">Efternamn</label> 
+        <input class="textInput" type="text" id="Efternamn"/><br/>
+        <label for="epost">Epost</label> 
+        <input class="textInput" type="text" id="epost" /><br/>
         <label for="address">Adress</label>
-        <input type="text" id="address" /><br/>
-    
+        <input class="textInput" type="text" id="address" /><br/>
         <label for="postnummer">Postnummer</label>
-        <input type="text" id="postnummer" /><br/>
-   
+        <input class="textInput"type="text" id="postnummer" /><br/>
         <label for="ort">Ort</label>
-        <input type="text" id="ort" /><br/>
-
+        <input class="textInput"type="text" id="ort" /><br/>
         <label for="telNummer">Telnummer</label>
-        <input type="text" id="telNummer" /><br/>
-    
+        <input class="textInput"type="text" id="telNummer" /><br/>
         <label for="datumStart">Datum för start</label>
-        <input type="text" id="datumStart" /><br/>
-
-        <input type="button" id="SubmitButton" value="submit" name="submit" onclick="buttonKlicked()"/>
-        <input type="button" id="AvbrytButton" value="Avbryt" name="submit" onclick="buttonKlicked()"/>
-        <p id="message2">hehhehe</p>
-
+        <input class="textInput"type="text" id="datumStart" /><br/>
+     
+         <input type="button" id="SubmitButton" value="submit" name="submit" onclick="SubmitButton()"/>
+         <input type="button" id="AvbrytButton" value="Avbryt" name="submit" onclick="exitButtonKlicked()"/>
     </div>
+       
 </asp:Content>

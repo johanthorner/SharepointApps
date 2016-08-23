@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="33f4f448-2481-439c-89e8-58aea086d850" 
+        solutionId="33f4f448-2481-439c-89e8-58aea086d850" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="ExempelMedListor"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="e9a82c6a-d20c-4d28-997d-99d0ea4db53a" />
+  </features>
+</package>

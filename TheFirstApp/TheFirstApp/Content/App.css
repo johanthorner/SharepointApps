@@ -2,6 +2,24 @@
 #FormulärDiv {
     background-color: lightblue;
 }
-input #FormulärDiv {
-    float: left;
+#FormulärDiv {
+    width: 400px;
+    position: relative;
+    padding: 100px;
+}
+input {
+   position:absolute; right:100px;
+
+    
+}
+#SubmitButton {
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+}
+#AvbrytButton {
+    position: absolute;
+    bottom: 0px;
+    left: 200px;
+
 }

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="1ffead50-7933-4f9a-b9b3-e1a0a5cae6b9" 
+        solutionId="1ffead50-7933-4f9a-b9b3-e1a0a5cae6b9" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="ReturningCollections"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="679590bc-9f0b-4699-8085-747812b321ed" />
+  </features>
+</package>
