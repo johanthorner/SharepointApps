@@ -103,6 +103,7 @@ function initializePage() {
         console.log("Något blev fel. listan skapades inte");
     }
 
+    //hostweb-relaterad URL splitter
     function getQuerryStringParameter(param) {
         var params = document.URL.split("?")[1].split("&");
         for (var i = 0; i < params.length; i = i + 1) {
