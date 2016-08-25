@@ -13,6 +13,7 @@ function initializePage() {
         var currentContext = SP.ClientContext.get_current();
         var list = currentContext.get_web().get_lists().getByTitle("MediaList");
 
+        //Ska ta ut en specifik sökning i listan 
         var caml = new SP.CamlQuery();
 
         //caml.set_viewXml("<View><Query><Where><BeginsWith><FieldRef Name='Title' /><Value Type='Text'>T</Value></BeginsWith>            </Where></Query></View>");

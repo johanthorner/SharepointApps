@@ -1,4 +1,6 @@
-﻿'use strict';
+﻿"hej!?"
+
+'use strict';
 var mediaList = "MediaList";
 var author = "Author";
 var description = "Description";
