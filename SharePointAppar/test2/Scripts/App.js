@@ -12,7 +12,8 @@ function initializePage() {
         var list = context.get_web().get_lists().getByTitle('DemoList3');
         context.load(list);
         context.executeQueryAsync(onGetListSuccess, onGetListFail);
-       // addItemToList();
+        // addItemToList();
+
 
     });
 
@@ -72,21 +73,16 @@ function initializePage() {
 
         var context = SP.ClientContext.get_current();
         var myList = context.get_web().get_lists().getByTitle("DemoList3");
-
         
         var itemCreateInfo = new SP.ListItemCreationInformation();
         var newListItem = myList.addItem(itemCreateInfo);
 
         newListItem.set_item("Title", "Johan");
        
-
-      
         newListItem.update();
 
         context.load(newListItem);
         context.executeQueryAsync(addItemSuccess(), addItemFail());
-
-
     }
 
     function addItemSuccess() {

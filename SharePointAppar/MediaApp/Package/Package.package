@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="029beef7-0aa6-4238-9ba6-eb3ddb567893" 
+        solutionId="029beef7-0aa6-4238-9ba6-eb3ddb567893" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="MediaApp"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="bf07a28e-0f9a-4a99-a98f-c3fd8d58b21a" />
+  </features>
+</package>
