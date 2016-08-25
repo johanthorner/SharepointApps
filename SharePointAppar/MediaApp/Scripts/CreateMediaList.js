@@ -9,9 +9,13 @@ ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 
 function initializePage() {
 
-    $(document).ready(function() {
+    $(document).ready(function () {
+
+        var hostWebUrl = decodeURIComponent(getQuerryStringParameter("SPHostUrl"));
         var context = SP.ClientContext.get_current();
-        var list = context.get_web().get_lists().getByTitle("MediaList");
+        var hostContext = new SP.AppContextSite(context, hostWebUrl);
+        var list = hostContext.get_web().get_lists().getByTitle("MediaList");
+
         context.load(list);
         context.executeQueryAsync(onGetListSuccess, onGetListFail);
         
@@ -97,6 +101,16 @@ function initializePage() {
 
     function onCreateFail() {
         console.log("Något blev fel. listan skapades inte");
+    }
+
+    function getQuerryStringParameter(param) {
+        var params = document.URL.split("?")[1].split("&");
+        for (var i = 0; i < params.length; i = i + 1) {
+            var singelParam = params[i].split("=");
+            if (singelParam[0] == param) {
+                return singelParam[1];
+            }
+        }
     }
 
 }
