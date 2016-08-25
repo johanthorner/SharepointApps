@@ -11,7 +11,7 @@ function initializePage() {
 
     $(document).ready(function () {
 
-        var hostWebUrl = decodeURIComponent(getQuerryStringParameter("SPHostUrl"));
+        var hostWebUrl = decodeURIComponent(getQuerryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
         var context = SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
         var list = hostContext.get_web().get_lists().getByTitle("MediaList");
