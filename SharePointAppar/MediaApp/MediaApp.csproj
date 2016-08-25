@@ -68,6 +68,7 @@
     <Content Include="Scripts\SP.js" />
     <Content Include="Scripts\SP.Runtime.js" />
     <Content Include="Scripts\SP.UI.Dialog.js" />
+    <Content Include="Scripts\WebStorage.js" />
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
