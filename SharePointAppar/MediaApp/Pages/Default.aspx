@@ -19,6 +19,8 @@
     <script src="../Scripts/CreateMediaList.js"></script>
     <script src="../Scripts/displayListScript.js"></script>
     <script src="../Scripts/redirectScript.js"></script>
+    <script src="../Scripts/WebStorage.js"></script>
+
     <script type="text/javascript" src="../Scripts/App.js"></script>
 </asp:Content>
 
@@ -39,11 +41,14 @@
     <button id="redirectButton" type="button" onclick="clickCounterRedirect()">redirect</button>
     <button id="redirectToRootButton" type="button" onclick="clickCounterRedirectToRoot()">redirectToRootPage</button>
     <button id="redirectToAddNewMedia" type="button" onclick="clickCounterRedirectToAddNewMedia()">redirectToMediaPage</button>
-    <button id="FilterMoviesButton"type="button" onclick="">Movies</button>
-    <button id="FilterBooksButton"type="button" onclick="">Books</button>
-    <button id="FilterMusicBotton"type="button" onclick="">Music</button>
+    <button id="FilterMoviesButton" type="button" onclick="">Movies</button>
+    <button id="FilterBooksButton" type="button" onclick="">Books</button>
+    <button id="FilterMusicBotton" type="button" onclick="">Music</button>
+
+
+    <input type='button' value='Remove' onclick='RemoveItem();' />
+
+
     <div id="clickResult"></div>
-   
-   
-     <input type='button' value='Remove' onclick='RemoveItem();' />
+
 </asp:Content>
