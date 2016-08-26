@@ -36,6 +36,7 @@
             initializing...
         </p>
     </div>
-    <button type="button">redirect</button>
+    <button id="redirectButton" type="button" onclick="redirect()">redirect</button>
+    <button id="redirectToRootButton"type="button" onclick="redirectToRootPage()">redirectToRootPage</button>
 
 </asp:Content>

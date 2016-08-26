@@ -9,9 +9,14 @@ function initializePage() {
         
     });
 
-    document.addEventListener("click", function() {
-        //redirectToRootPage();
-         redirect();
+    var redirectBtn = document.getElementById("redirectButton");
+    var redirectToRootBtn = document.getElementById("redirectToRootButton");
+
+    redirectBtn.addEventListener("click", function () {
+        redirect();
+    });
+    redirectToRootBtn.addEventListener("click", function () {
+        redirectToRootPage();
     });
 
     function redirect() {
