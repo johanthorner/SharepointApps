@@ -64,24 +64,26 @@ function initializePage() {
 
     function addFieldSuccess() {
         console.log("Field lades till");
-        createListItem();
+        createListItem("Full Metal Jacket", "Classics", "Movie");
+        createListItem("Slottet", "Classics", "Book");
+        createListItem("The River", "Classics", "Music");
     }
     function addFieldFail() {
         console.log("Field lades INTE till");
     }
 
-    function createListItem() {
+    function createListItem(title, description, mediaType) {
         var context = SP.ClientContext.get_current();
         var mediaList = context.get_web().get_lists().getByTitle("MediaList");
 
         var itemCreateInfo = new SP.ListItemCreationInformation();
         var newListItem = mediaList.addItem(itemCreateInfo);
         
-        newListItem.set_item("Title", "Full metal jacket");
-        newListItem.set_item("Description", "movie classics");
+        newListItem.set_item("Title", title);
+        newListItem.set_item("Description", description);
         
         //newListItem.set_item("Author", "Stanley Kubrick");
-        newListItem.set_item("MediaType", "Movie");
+        newListItem.set_item("MediaType", mediaType);
 
         newListItem.update();
         context.load(newListItem);

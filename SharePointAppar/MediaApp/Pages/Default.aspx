@@ -38,5 +38,10 @@
     </div>
     <button id="redirectButton" type="button" onclick="redirect()">redirect</button>
     <button id="redirectToRootButton"type="button" onclick="redirectToRootPage()">redirectToRootPage</button>
-
+    
+    <button id="FilterMoviesButton"type="button" onclick="">Movies</button>
+    <button id="FilterBooksButton"type="button" onclick="">Books</button>
+    <button id="FilterMusicBotton"type="button" onclick="">Music</button>
+   
+     <input type='button' value='Remove' onclick='RemoveItem();' />
 </asp:Content>
