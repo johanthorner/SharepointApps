@@ -75,16 +75,34 @@ function initializePage() {
     }
 
     function RemoveItemPrompt(id) {
-        var removeItem = confirm("Are you sure you want to remove item:" + id);
-        if (removeItem === true) {
-            alert("OK");
+        var removeItemAnswer = confirm("Are you sure you want to remove item:" + id);
+        if (removeItemAnswer === true) {
+            removeItem(id);
         } else {
-            alert("not removed");
+            alert("item not removed");
         }
     }
 
-function removeItem(id) {
-    
-}
+    function removeItem(itemId) {
+        var hostweburl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));
+        var context = SP.ClientContext.get_current();
+
+        var hostContext = new SP.AppContextSite(context, hostweburl);
+        var list = hostContext.get_web().get_lists().getByTitle("MediaList");
+
+      
+
+        var myListItem = list.getItemById(itemId);
+        myListItem.deleteObject();
+
+        context.executeQueryAsync(onItemDeleted, onItemNotDeleted);
+    }
+
+    function onItemDeleted() {
+        alert("Item deleted:");
+    }
+    function onItemNotDeleted() {
+        alert("Somthing went wrong");
+    }
     
 

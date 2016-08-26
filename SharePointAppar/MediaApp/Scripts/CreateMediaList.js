@@ -21,6 +21,16 @@ function initializePage() {
         
     });
 
+    function getQuerryStringParameter(param) {
+        var params = document.URL.split("?")[1].split("&");
+        for (var i = 0; i < params.length; i = i + 1) {
+            var singelParam = params[i].split("=");
+            if (singelParam[0] == param) {
+                return singelParam[1];
+            }
+        }
+    }
+
     function onGetListSuccess() {
         //Listan finns
         console.log("MediaList finns");
@@ -105,15 +115,5 @@ function initializePage() {
         console.log("Något blev fel. listan skapades inte");
     }
 
-    //hostweb-relaterad URL splitter
-    function getQuerryStringParameter(param) {
-        var params = document.URL.split("?")[1].split("&");
-        for (var i = 0; i < params.length; i = i + 1) {
-            var singelParam = params[i].split("=");
-            if (singelParam[0] == param) {
-                return singelParam[1];
-            }
-        }
-    }
 
 }

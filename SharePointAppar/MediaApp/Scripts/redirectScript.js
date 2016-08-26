@@ -83,14 +83,6 @@ function initializePage() {
     //GoToPage(mediaPageAppWeb + "/MediaApp/AddNewMediaType", true);
 
 
-    //function getQuerryStringParameter(param) {
-    //    var params = document.URL.split("?")[1].split("&");
-    //    for (var i = 0; i < params.length; i = i + 1) {
-    //        var singelParam = params[i].split("=");
-    //        if (singelParam[0] == param) {
-    //            return singelParam[1];
-    //        }
-    //    }
-    //}
+   
 
 }
