@@ -36,9 +36,9 @@
             initializing...
         </p>
     </div>
-    <button id="redirectButton" type="button" onclick="clickCounter()">redirect</button>
-    <button id="redirectToRootButton" type="button" onclick="clickCounter()">redirectToRootPage</button>
-    <button id="redirectToAddNewMedia" type="button" onclick="clickCounter()">redirectToMediaPage</button>
+    <button id="redirectButton" type="button" onclick="clickCounterRedirect()">redirect</button>
+    <button id="redirectToRootButton" type="button" onclick="clickCounterRedirectToRoot()">redirectToRootPage</button>
+    <button id="redirectToAddNewMedia" type="button" onclick="clickCounterRedirectToAddNewMedia()">redirectToMediaPage</button>
     <button id="FilterMoviesButton"type="button" onclick="">Movies</button>
     <button id="FilterBooksButton"type="button" onclick="">Books</button>
     <button id="FilterMusicBotton"type="button" onclick="">Music</button>

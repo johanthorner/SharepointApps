@@ -53,6 +53,7 @@ function initializePage() {
 
 
     //fungerar inte atm - "not defined"?
+    //TODO - Fixa, denna eller alt.2
 
     //function redirectAddNewMedia() {
     //    var context = SP.ClientContext.get_current();
@@ -76,19 +77,20 @@ function initializePage() {
 
 
     //fungerar inte alls - error 404
-    var mediaPageAppWeb = decodeURIComponent(getQuerryStringParameter('SPAppWebUrl'));
+    //TODO - Fixa, denna eller alt1.
+    //var mediaPageAppWeb = decodeURIComponent(getQuerryStringParameter('SPAppWebUrl'));
 
-    GoToPage(mediaPageAppWeb + "/MediaApp/AddNewMediaType", true);
+    //GoToPage(mediaPageAppWeb + "/MediaApp/AddNewMediaType", true);
 
 
-    function getQuerryStringParameter(param) {
-        var params = document.URL.split("?")[1].split("&");
-        for (var i = 0; i < params.length; i = i + 1) {
-            var singelParam = params[i].split("=");
-            if (singelParam[0] == param) {
-                return singelParam[1];
-            }
-        }
-    }
+    //function getQuerryStringParameter(param) {
+    //    var params = document.URL.split("?")[1].split("&");
+    //    for (var i = 0; i < params.length; i = i + 1) {
+    //        var singelParam = params[i].split("=");
+    //        if (singelParam[0] == param) {
+    //            return singelParam[1];
+    //        }
+    //    }
+    //}
 
 }
