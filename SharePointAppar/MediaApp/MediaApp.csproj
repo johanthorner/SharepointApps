@@ -49,6 +49,7 @@
       <SharePointProjectItemId>{6e557c50-c351-42c7-9ea0-7c68459c4e98}</SharePointProjectItemId>
     </None>
     <Content Include="Elements.xml" />
+    <Content Include="Pages\AddNewMediaType.aspx" />
     <Content Include="Pages\Elements.xml" />
     <Content Include="Pages\Default.aspx" />
     <None Include="SharePointProjectItem.spdata">
