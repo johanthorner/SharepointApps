@@ -39,15 +39,11 @@
     <button id="redirectButton" type="button" onclick="clickCounter()">redirect</button>
     <button id="redirectToRootButton" type="button" onclick="clickCounter()">redirectToRootPage</button>
     <button id="redirectToAddNewMedia" type="button" onclick="clickCounter()">redirectToMediaPage</button>
-    
-    <div id="clickResult"></div>
-
-    <button id="redirectButton" type="button" onclick="redirect()">redirect</button>
-    <button id="redirectToRootButton"type="button" onclick="redirectToRootPage()">redirectToRootPage</button>
-    
     <button id="FilterMoviesButton"type="button" onclick="">Movies</button>
     <button id="FilterBooksButton"type="button" onclick="">Books</button>
     <button id="FilterMusicBotton"type="button" onclick="">Music</button>
+    <div id="clickResult"></div>
+   
    
      <input type='button' value='Remove' onclick='RemoveItem();' />
 </asp:Content>
