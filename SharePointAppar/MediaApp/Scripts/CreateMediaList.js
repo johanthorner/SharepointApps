@@ -1,4 +1,4 @@
-﻿"hej!?"
+﻿
 
 'use strict';
 var mediaList = "MediaList";
