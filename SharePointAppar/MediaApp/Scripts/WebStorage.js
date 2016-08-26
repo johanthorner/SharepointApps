@@ -27,33 +27,33 @@
 
 function clickCounterRedirect() {
     if (typeof (Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        if (sessionStorage.clickcountRedirect) {
+            sessionStorage.clickcountRedirect = Number(sessionStorage.clickcountRedirect) + 1;
         } else {
-            localStorage.clickcount = 1;
+            sessionStorage.clickcountRedirect = 1;
         }
-        document.getElementById("clickResult").innerHTML = "You have clicked the button " + localStorage.clickcount + "time(s).";
+        document.getElementById("clickResult").innerHTML = "You have clicked the button " + sessionStorage.clickcountRedirect + "time(s).";
     }
 }
 
 function clickCounterRedirectToRoot() {
     if (typeof (Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        if (sessionStorage.clickcountRedirectToRoot) {
+            sessionStorage.clickcountRedirectToRoot = Number(sessionStorage.clickcountRedirectToRoot) + 1;
         } else {
-            localStorage.clickcount = 1;
+            sessionStorage.clickcountRedirectToRoot = 1;
         }
-        document.getElementById("clickResult").innerHTML = "You have clicked the button " + localStorage.clickcount + "time(s).";
+        document.getElementById("clickResult").innerHTML = "You have clicked the button " + sessionStorage.clickcountRedirectToRoot + "time(s).";
     }
 }
 
 function clickCounterRedirectToAddNewMedia() {
     if (typeof (Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        if (sessionStorage.clickcountRedirectToAddNewMedia) {
+            sessionStorage.clickcountRedirectToAddNewMedia = Number(sessionStorage.clickcountRedirectToAddNewMedia) + 1;
         } else {
-            localStorage.clickcount = 1;
+            sessionStorage.clickcountRedirectToAddNewMedia = 1;
         }
-        document.getElementById("clickResult").innerHTML = "You have clicked the button " + localStorage.clickcount + "time(s).";
+        document.getElementById("clickResult").innerHTML = "You have clicked the button " + sessionStorage.clickcountRedirectToAddNewMedia + "time(s).";
     }
 }
