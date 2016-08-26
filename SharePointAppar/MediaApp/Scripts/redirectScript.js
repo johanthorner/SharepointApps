@@ -26,7 +26,7 @@ function initializePage() {
 
     function redirectToRootPage() {
         var context = SP.ClientContext.get_current();
-        var myList = context.get_web().get_lists().getByTitle("listaPåRootWebben");
+        var myList = context.get_web().get_lists().getByTitle("MediaList");
         var rootfolder = myList.get_rootFolder();
         
         context.load(rootfolder);

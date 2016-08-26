@@ -33,6 +33,8 @@ function initializePage() {
         }
         markup += "</ul>";
         document.getElementById("MediaListDisplay").innerHTML = markup;
+        //TODO: ta bort item i listan
+        //TODO: Filtrering
     }
     function onQueryFailed(sender , args)
     {
