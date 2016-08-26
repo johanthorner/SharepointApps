@@ -24,16 +24,6 @@ function initializePage() {
         GoToPage(appWebUrl1 + "/lists/MediaList", true);
     }
 
-    function getQuerryStringParameter(param) {
-        var params = document.URL.split("?")[1].split("&");
-        for (var i = 0; i < params.length; i = i + 1) {
-            var singelParam = params[i].split("=");
-            if (singelParam[0] == param) {
-                return singelParam[1];
-            }
-        }
-    }
-
     function redirectToRootPage() {
         var context = SP.ClientContext.get_current();
         var myList = context.get_web().get_lists().getByTitle("listaPåRootWebben");

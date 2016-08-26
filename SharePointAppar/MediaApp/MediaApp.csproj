@@ -43,12 +43,17 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="DOKUMENT\Projektet.docx" />
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6e557c50-c351-42c7-9ea0-7c68459c4e98}</SharePointProjectItemId>
     </None>
+    <Content Include="Elements.xml" />
     <Content Include="Pages\Elements.xml" />
     <Content Include="Pages\Default.aspx" />
+    <None Include="SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fd8134d7-d675-4ce8-8e5f-42adf569e6ca}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\jquery-1.9.1.min.map" />
@@ -68,6 +73,7 @@
     <Content Include="Scripts\SP.js" />
     <Content Include="Scripts\SP.Runtime.js" />
     <Content Include="Scripts\SP.UI.Dialog.js" />
+    <Content Include="Scripts\WebStorage.js" />
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>

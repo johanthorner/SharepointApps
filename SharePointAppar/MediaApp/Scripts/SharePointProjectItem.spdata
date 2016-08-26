@@ -15,5 +15,6 @@
     <ProjectItemFile Source="SP.UI.Dialog.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="displayListScript.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="redirectScript.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="WebStorage.js" Target="Scripts\" Type="ElementFile" />
   </Files>
 </ProjectItem>
