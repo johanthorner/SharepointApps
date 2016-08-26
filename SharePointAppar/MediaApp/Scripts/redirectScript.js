@@ -37,4 +37,6 @@ function initializePage() {
         console.log("Page redirect error");
     }
 
+    //TODO - skapa en redirect till 'Lägg till ny mediatyp'-sida
+
 }
