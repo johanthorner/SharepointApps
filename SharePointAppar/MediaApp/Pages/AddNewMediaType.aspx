@@ -5,10 +5,15 @@
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <script type="text/javascript" src="../Scripts/jquery-1.9.1.min.js"></script>
     <SharePoint:ScriptLink Name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
+    <meta name="WebPartPageExpansion" content="full" />
 
-    <script type="text/javascript" src="../Scripts/redirectScript.js"></script>
+    <!-- Add your CSS styles to the following file -->
+    <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
 
+    <!-- Add your JavaScript to the following file -->
+    <script src="../Scripts/CreateItemPageScript.js"></script>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
@@ -20,17 +25,17 @@
 
         <form id="redirectForm">
             <label>Title:</label><br />
-            <input type="text" name="titleInput" /><br />
+            <input id="titleInput" type="text" name="titleInput" /><br />
             <label>Description:</label><br />
-            <input type="text" name="descriptionInput" /><br />
+            <input id="descriptionInput" type="text" name="descriptionInput" /><br />
             <label>Media type:</label><br />
-            <input type="text" name="mediaTypeInput" /><br />
+            <input id="mediaTypeInput" type="text" name="mediaTypeInput" /><br />
             <br />
             <br />
-            <input type="submit" value="Add new media type" /><br />
+            <input id="SubmitItemData" type="submit" value="Add new media type" /><br />
         </form>
       
-          <button id="redirectToRootButton" type="button" onclick="redirectToRootPage()">redirectToRootPage</button>
+          <button id="redirectToRootButton" type="button">redirectToRootPage</button>
 
     </div>
 

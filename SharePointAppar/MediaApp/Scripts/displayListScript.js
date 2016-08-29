@@ -84,7 +84,7 @@ function initializePage() {
     }
 
     function removeItem(itemId) {
-        var hostweburl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));
+       
         var context = SP.ClientContext.get_current();
 
         var hostContext = new SP.AppContextSite(context, hostweburl);

@@ -1,4 +1,6 @@
-﻿'use strict';
+﻿/// <reference path="c:\users\johan\source\repos\sharepointapps\sharepointappar\mediaapp\pages\addnewmediatype.aspx" />
+/// <reference path="c:\users\johan\source\repos\sharepointapps\sharepointappar\mediaapp\pages\addnewmediatype.aspx" />
+'use strict';
 
 ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 var returnedItems = null;
@@ -13,9 +15,7 @@ function initializePage() {
     var redirectToRootBtn = document.getElementById("redirectToRootButton");
     var redirectToAddNewMedia = document.getElementById("redirectToAddNewMedia");
 
-    redirectBtn.addEventListener("click", function () {
-        redirect();
-    });
+   
     redirectToRootBtn.addEventListener("click", function () {
         redirectToRootPage();
     });
@@ -24,21 +24,11 @@ function initializePage() {
         redirectAddNewMedia();
     });
 
-    //function redirect() {
-    //    var appWebUrl1 = decodeURIComponent(getQuerryStringParameter("SPAppWebUrl"));
-    //    GoToPage(appWebUrl1 + "/lists/MediaList", true);
-    //}
-
-
+   
     //fungerar inte atm - "not defined"?
     function redirectToRootPage() {
-        var context = SP.ClientContext.get_current();
-        var myList = context.get_web().get_lists().getByTitle("MediaList");
-        var rootfolder = myList.get_rootFolder();
-        
-        context.load(rootfolder);
-        
-        context.executeQueryAsync(onGetUserNameSuccess, onGetUserNameFail);
+        var appWebUrl = decodeURIComponent(getQuerryStringParameter("SPAppWebUrl"));
+        GoToPage(appWebUrl + "/Pages/Default.aspx", true);
     };
     function onGetUserNameSuccess() {
         //Redirect kod här..
@@ -49,31 +39,32 @@ function initializePage() {
         console.log("Page redirect error");
     }
 
-    //TODO - skapa en redirect till 'Lägg till ny mediatyp'-sida
-
-
+   
     //fungerar inte atm - "not defined"?
     //TODO - Fixa, denna eller alt.2
+    function getQuerryStringParameter(param) {
+        var params = document.URL.split("?")[1].split("&");
+        for (var i = 0; i < params.length; i = i + 1) {
+            var singelParam = params[i].split("=");
+            if (singelParam[0] == param) {
+                return singelParam[1];
+            }
+        }
+    }
+    function redirectAddNewMedia() {
+        console.log("redirectAddNewMedia körs");
 
-    //function redirectAddNewMedia() {
-    //    var context = SP.ClientContext.get_current();
-    //    var myMediaList = context.get_web().get_lists().getByTitle("MediaList");
-    //    var rootfolder = myMediaList.get_rootFolder();
-    //    var listUrl = rootfolder.get_serverRelativePath();
+        var appWebUrl = decodeURIComponent(getQuerryStringParameter("SPAppWebUrl"));
+        GoToPage(appWebUrl + "/Pages/AddNewMediaType.aspx", true);
+       }
 
-    //    GoToPage(listUrl, true);
+    function onRedirectToMediaPageSuccess() {
+        document.getElementById("message").innerHTML = "";
+    }
 
-    //    context.load(rootfolder);
-    //    context.executeQueryAsync(onRedirectToMediaPageSuccess, onRedirectToMediaPageFail);
-    //}
-
-    //function onRedirectToMediaPageSuccess() {
-    //    document.getElementById("message").innerHTML = "";
-    //}
-
-    //function onRedirectToMediaPageFail() {
-    //    document.getElementById("message").innerHTML = "Failed to redirect to new page...";
-    //}
+    function onRedirectToMediaPageFail() {
+        document.getElementById("message").innerHTML = "Failed to redirect to new page...";
+    }
 
 
     //fungerar inte alls - error 404
