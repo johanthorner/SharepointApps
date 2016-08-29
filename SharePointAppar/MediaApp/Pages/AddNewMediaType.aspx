@@ -13,6 +13,7 @@
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
 
     <!-- Add your JavaScript to the following file -->
+    <script src="../Scripts/ListProperties.js"></script>
     <script src="../Scripts/CreateItemPageScript.js"></script>
 </asp:Content>
 

@@ -14,7 +14,9 @@
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
-
+    
+    <script src="../Scripts/ListProperties.js"></script>
+    <script src="../Scripts/CreateListInHostWeb.js"></script>
     <!-- Add your JavaScript to the following file -->
     <script src="../Scripts/CreateMediaList.js"></script>
     <script src="../Scripts/displayListScript.js"></script>

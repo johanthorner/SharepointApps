@@ -62,6 +62,7 @@
       <SharePointProjectItemId>{0f28b781-ea72-4d27-aac1-dd5210362dad}</SharePointProjectItemId>
     </None>
     <Content Include="Scripts\CreateItemPageScript.js" />
+    <Content Include="Scripts\CreateListInHostWeb.js" />
     <Content Include="Scripts\CreateMediaList.js" />
     <Content Include="Scripts\displayListScript.js" />
     <Content Include="Scripts\Elements.xml" />
@@ -70,6 +71,7 @@
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\ListProperties.js" />
     <Content Include="Scripts\redirectScript.js" />
     <Content Include="Scripts\SP.Core.js" />
     <Content Include="Scripts\SP.js" />

@@ -1,16 +1,29 @@
 ﻿'use strict';
 
 ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
-var mediaOptions = ["Movie", "Book", "Music"];
+
 function initializePage() {
-    
-    
+     fillSelectMediaList(mediaOptions);
 
-    $(document).ready(function () {
-        fillSelectMediaList(mediaOptions);
+     var SubmitItemDataBtn = document.getElementById("SubmitItemData");
+    SubmitItemDataBtn.addEventListener("click", function () {
+        console.log("Submit button presed");
+        var titleInput = document.getElementById("titleInput").value;
+        var descriptionInput = document.getElementById("descriptionInput").value;
+
+        var selectMediaList = document.getElementById("selectMedia");
+        var SelectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
+        
+        createListItem(titleInput, descriptionInput, mediaOptions[SelectedMediaIndex]);
+
     });
-
-   
+    var redirectToRootBtn = document.getElementById("redirectToRootButton");
+    redirectToRootBtn.addEventListener("click", function() {
+        console.log("Redirectiong To root page");
+        redirectToRootPage();
+    });
+}
+    
 
     function fillSelectMediaList(mediaOptions) {
         console.log("Filling dropdown");
@@ -30,45 +43,34 @@ function initializePage() {
         selectBox.options.add(optn);
     }
         
-    var SubmitItemDataBtn = document.getElementById("SubmitItemData");
-    SubmitItemDataBtn.addEventListener("click", function () {
-        console.log("Submit button presed");
-        var titleInput = document.getElementById("titleInput").value;
-        var descriptionInput = document.getElementById("descriptionInput").value;
-
-        var selectMediaList = document.getElementById("selectMedia");
-        var SelectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
-        
-        createListItem(titleInput, descriptionInput, mediaOptions[SelectedMediaIndex]);
-
-    });
-    var redirectToRootBtn = document.getElementById("redirectToRootButton");
-    redirectToRootBtn.addEventListener("click", function() {
-        console.log("Redirectiong To root page");
-        redirectToRootPage();
-    });
-   
-    function getQuerryStringParameter(param) {
+    
+    
+    function getQueryStringParameter(param) {
         var params = document.URL.split("?")[1].split("&");
         for (var i = 0; i < params.length; i = i + 1) {
-            var singelParam = params[i].split("=");
-            if (singelParam[0] == param) {
-                return singelParam[1];
+            var singleParam = params[i].split("=");
+            if (singleParam[0] == param) {
+                return singleParam[1];
             }
         }
     }
 
-    function createListItem(title, description, mediaType) {
+    function createListItem(titleInput, descriptionInput, mediaTypeInput) {
+        console.log("createListItem");
+        var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+     
+        var context = new SP.ClientContext.get_current();
+        var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-        var context = SP.ClientContext.get_current();
-        var mediaList = context.get_web().get_lists().getByTitle("MediaList");
+        var list = hostContext.get_web().get_lists().getByTitle(listTitle);
 
         var itemCreateInfo = new SP.ListItemCreationInformation();
-        var newListItem = mediaList.addItem(itemCreateInfo);
+        var newListItem = list.addItem(itemCreateInfo);
 
-        newListItem.set_item("Title", title);
-        newListItem.set_item("Description", description);
-        newListItem.set_item("MediaType", mediaType);
+        newListItem.set_item("Title", titleInput);
+        newListItem.set_item("Description", descriptionInput);
+
+        newListItem.set_item("MediaType", mediaTypeInput);
 
         newListItem.update();
         context.load(newListItem);
@@ -77,25 +79,17 @@ function initializePage() {
 
     function addItemSuccess() {
 
-        console.log("list item skapades!: ");
-    //TODO: lägg till feedback till användaren när ett item har skapats
+        alert("list item skapades!: ");
 
     }
 
     function addItemFail() {
 
-        console.log("Error (i funktionen addItemToList): ");
-        document.getElementById("CreateItemMessage").innerHTML = "<P>Something went wrong, item not created.</p>";
+        alert("Error (i funktionen addItemToList): ");
     }
-
     function redirectToRootPage()
     {
-        var appWebUrl = decodeURIComponent(getQuerryStringParameter("SPAppWebUrl"));
+        var appWebUrl = decodeURIComponent(getQueryStringParameter("SPAppWebUrl"));
         GoToPage(appWebUrl + "/Pages/Default.aspx", true);
     }
-        
 
-    
-
-
-}

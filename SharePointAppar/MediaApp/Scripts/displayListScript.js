@@ -34,9 +34,11 @@ function initializePage() {
     function displayList(sortBy) {
 
         console.log("Display funktion körs");
-        var currentContext = SP.ClientContext.get_current();
-        var list = currentContext.get_web().get_lists().getByTitle("MediaList");
+        var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+        var context = new SP.ClientContext.get_current();
+        var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
+        var list = hostContext.get_web().get_lists().getByTitle(listTitle);
         //Ska ta ut en specifik sökning i listan 
         var caml = new SP.CamlQuery();
         if (sortBy !== "All") {
@@ -44,8 +46,8 @@ function initializePage() {
         }
        
         returnedItems = list.getItems(caml);
-        currentContext.load(returnedItems);
-        currentContext.executeQueryAsync(onQuerySucceeded, onQueryFailed);
+        context.load(returnedItems);
+        context.executeQueryAsync(onQuerySucceeded, onQueryFailed);
 
     }
 
@@ -84,14 +86,12 @@ function initializePage() {
     }
 
     function removeItem(itemId) {
-       
-        var context = SP.ClientContext.get_current();
+        var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+        var context = new SP.ClientContext.get_current();
+        var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-        var hostContext = new SP.AppContextSite(context, hostweburl);
-        var list = hostContext.get_web().get_lists().getByTitle("MediaList");
-
-      
-
+        var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+        
         var myListItem = list.getItemById(itemId);
         myListItem.deleteObject();
 

@@ -17,5 +17,7 @@
     <ProjectItemFile Source="redirectScript.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="WebStorage.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="CreateItemPageScript.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="CreateListInHostWeb.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="ListProperties.js" Target="Scripts\" Type="ElementFile" />
   </Files>
 </ProjectItem>
