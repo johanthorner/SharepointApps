@@ -28,15 +28,18 @@
             <input id="titleInput" type="text" name="titleInput" /><br />
             <label>Description:</label><br />
             <input id="descriptionInput" type="text" name="descriptionInput" /><br />
-            <label>Media type:</label><br />
-            <input id="mediaTypeInput" type="text" name="mediaTypeInput" /><br />
+            <br />
+            <select id="selectMedia"></select>
             <br />
             <br />
-            <input id="SubmitItemData" type="submit" value="Add new media type" /><br />
+            <input id="SubmitItemData" type="submit" value="Add new item" /><br />
         </form>
       
           <button id="redirectToRootButton" type="button">redirectToRootPage</button>
 
+    </div>
+    <div id="CreateItemMessage">
+        
     </div>
 
 </asp:Content>

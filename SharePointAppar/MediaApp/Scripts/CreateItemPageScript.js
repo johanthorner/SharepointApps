@@ -1,21 +1,45 @@
 ﻿'use strict';
 
 ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
-
+var mediaOptions = ["Movie", "Book", "Music"];
 function initializePage() {
-
+    
+    
 
     $(document).ready(function () {
-        
+        fillSelectMediaList(mediaOptions);
     });
+
+   
+
+    function fillSelectMediaList(mediaOptions) {
+        console.log("Filling dropdown");
+        var selectMediaList = document.getElementById("selectMedia");
+        
+        if (selectMediaList) {
+            for (var i = 0; i < mediaOptions.length; i++) {
+                addOption(selectMediaList, mediaOptions[i], i);
+            }
+        }
+    }
+
+    function addOption(selectBox, text, value) {
+        var optn = document.createElement("OPTION");
+        optn.text = text;
+        optn.value = value;
+        selectBox.options.add(optn);
+    }
+        
     var SubmitItemDataBtn = document.getElementById("SubmitItemData");
     SubmitItemDataBtn.addEventListener("click", function () {
         console.log("Submit button presed");
         var titleInput = document.getElementById("titleInput").value;
         var descriptionInput = document.getElementById("descriptionInput").value;
-        var mediaTypeInput = document.getElementById("descriptionInput").value;
 
-        createListItem(titleInput, descriptionInput, mediaTypeInput);
+        var selectMediaList = document.getElementById("selectMedia");
+        var SelectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
+        
+        createListItem(titleInput, descriptionInput, mediaOptions[SelectedMediaIndex]);
 
     });
     var redirectToRootBtn = document.getElementById("redirectToRootButton");
@@ -44,8 +68,6 @@ function initializePage() {
 
         newListItem.set_item("Title", title);
         newListItem.set_item("Description", description);
-
-        //newListItem.set_item("Author", "Stanley Kubrick");
         newListItem.set_item("MediaType", mediaType);
 
         newListItem.update();
@@ -56,12 +78,14 @@ function initializePage() {
     function addItemSuccess() {
 
         console.log("list item skapades!: ");
+    //TODO: lägg till feedback till användaren när ett item har skapats
 
     }
 
     function addItemFail() {
 
         console.log("Error (i funktionen addItemToList): ");
+        document.getElementById("CreateItemMessage").innerHTML = "<P>Something went wrong, item not created.</p>";
     }
 
     function redirectToRootPage()
