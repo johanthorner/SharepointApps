@@ -11,26 +11,16 @@ function initializePage() {
 
     $(document).ready(function () {
 
-        var hostWebUrl = decodeURIComponent(getQuerryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+        var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
-        
+
         var list = hostContext.get_web().get_lists().getByTitle("MediaList");
 
         context.load(list);
         context.executeQueryAsync(onGetListSuccess, onGetListFail);
-        
-    });
 
-    function getQuerryStringParameter(param) {
-        var params = document.URL.split("?")[1].split("&");
-        for (var i = 0; i < params.length; i = i + 1) {
-            var singelParam = params[i].split("=");
-            if (singelParam[0] == param) {
-                return singelParam[1];
-            }
-        }
-    }
+    });
 
     function onGetListSuccess() {
         //Listan finns
@@ -58,10 +48,10 @@ function initializePage() {
     }
     function createColumns(listTitle) {
 
-        
+
         var context = SP.ClientContext.get_current();
         var myList = context.get_web().get_lists().getByTitle(listTitle);
-       
+
 
         var fieldAuthor = myList.get_fields().addFieldAsXml("<Field DisplayName=\'" + author + "\' Type=\'Text\' />", true, SP.AddFieldOptions.addToNoContentType);
         var fieldDescription = myList.get_fields().addFieldAsXml("<Field DisplayName=\'" + description + "\' Type=\'Text\' />", true, SP.AddFieldOptions.addToNoContentType);
@@ -89,11 +79,9 @@ function initializePage() {
 
         var itemCreateInfo = new SP.ListItemCreationInformation();
         var newListItem = mediaList.addItem(itemCreateInfo);
-        
+
         newListItem.set_item("Title", title);
         newListItem.set_item("Description", description);
-        
-        //newListItem.set_item("Author", "Stanley Kubrick");
         newListItem.set_item("MediaType", mediaType);
 
         newListItem.update();
@@ -115,6 +103,5 @@ function initializePage() {
     function onCreateFail() {
         console.log("Något blev fel. listan skapades inte");
     }
-
 
 }

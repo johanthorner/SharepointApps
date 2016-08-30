@@ -7,10 +7,6 @@ function initializePage() {
     $(document).ready(function () {
         displayList("All");
        
-        //var removeItemBtn = document.getElementById("removeItem");
-        //var removeItemBtn.addEventListener("click", function () {
-        //    console.log("Remove item: ");
-        //});
     });
     var movieBtn = document.getElementById("FilterMoviesButton");
     var musicBtn = document.getElementById("FilterMusicBotton");
@@ -34,7 +30,7 @@ function initializePage() {
     function displayList(sortBy) {
 
         console.log("Display funktion körs");
-        var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+        var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
@@ -63,10 +59,8 @@ function initializePage() {
         markup += "</ul>";
         document.getElementById("MediaListDisplay").innerHTML = markup;
         }
-       
-        
-      
-        //TODO: ta bort item i listan
+
+    //TODO: ta bort item i listan
       
     }
 
@@ -86,7 +80,7 @@ function initializePage() {
     }
 
     function removeItem(itemId) {
-        var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+        var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
