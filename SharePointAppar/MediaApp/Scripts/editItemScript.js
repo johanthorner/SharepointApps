@@ -8,17 +8,17 @@ function initializePage() {
     getItem();
     fillSelectMediaList(mediaOptions);
 
-    var SubmitItemDataBtn = document.getElementById("SubmitItemData");
+    var submitItemDataBtn = document.getElementById("SubmitItemData");
 
-    SubmitItemDataBtn.addEventListener("click", function () {
+    submitItemDataBtn.addEventListener("click", function () {
         console.log("Submit button presed");
         var titleInput = document.getElementById("titleInput").value;
         var descriptionInput = document.getElementById("descriptionInput").value;
 
         var selectMediaList = document.getElementById("selectMedia");
-        var SelectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
+        var selectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
 
-        updateListItem(titleInput, descriptionInput, mediaOptions[SelectedMediaIndex]);
+        updateListItem(titleInput, descriptionInput, mediaOptions[selectedMediaIndex]);
 
     });
 }

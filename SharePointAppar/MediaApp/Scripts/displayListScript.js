@@ -54,7 +54,7 @@ function initializePage() {
         while (enumerator.moveNext()) {
             var listItem = enumerator.get_current();
             var curentID = listItem.get_id();
-            markup += "<li> ID: " + curentID + " Title: " + listItem.get_item("Title") + "Media type: " + listItem.get_item("MediaType") + "<input type='button' value='Remove' onclick='RemoveItemPrompt(" + curentID + ");' />" + "<input type='button' value='Edit' onclick='EditItem(" + curentID + ");' />" + "</li>";
+            markup += "<li> ID: " + curentID + " Title: " + listItem.get_item("Title") + "Media type: " + listItem.get_item("MediaType") + "<input type='button' class='removeBtn' value='Remove' onclick='RemoveItemPrompt(" + curentID + ");' />" + "<input type='button' class='editBtn' value='Edit' onclick='EditItem(" + curentID + ");' />" + "</li>";
             }
         markup += "</ul>";
         document.getElementById("MediaListDisplay").innerHTML = markup;

@@ -11,6 +11,9 @@
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Lato';
+    </style>
 
     <!-- Add your JavaScript to the following file -->
     <script src="../Scripts/ListProperties.js"></script>
@@ -35,12 +38,11 @@
             <br />
             <input id="SubmitItemData" type="submit" value="Add new item" /><br />
         </form>
-      
-          <button id="redirectToRootButton" type="button">redirectToRootPage</button>
+
+        <button id="redirectToRootButton" type="button">redirectToRootPage</button>
 
     </div>
     <div id="CreateItemMessage">
-        
     </div>
 
 </asp:Content>

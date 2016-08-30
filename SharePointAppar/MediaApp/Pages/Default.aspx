@@ -14,7 +14,11 @@
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
-    
+
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Lato';
+    </style>
+
     <script src="../Scripts/ListProperties.js"></script>
     <script src="../Scripts/CreateListInHostWeb.js"></script>
     <!-- Add your JavaScript to the following file -->
@@ -40,7 +44,7 @@
             initializing...
         </p>
     </div>
-    
+
     <button id="redirectToRootButton" type="button" onclick="clickCounterRedirectToRoot()">redirectToRootPage</button>
     <button id="redirectToAddNewMedia" type="button" onclick="clickCounterRedirectToAddNewMedia()">redirectToMediaPage</button>
     <button id="FilterMoviesButton" type="button" onclick="">Movies</button>
