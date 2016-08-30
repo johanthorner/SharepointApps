@@ -39,7 +39,7 @@
          
 
     </div>
-    <div id="CreateItemMessage">
+    <div id="EditItemMessage">
         
     </div>
 
