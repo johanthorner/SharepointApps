@@ -3,7 +3,7 @@
 ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 
 var itemId = localStorage.id;
-
+var returnedItems = null;
 function initializePage() {
     getItem();
     fillSelectMediaList(mediaOptions);
@@ -41,23 +41,69 @@ function addOption(selectBox, text, value) {
     selectBox.options.add(optn);
 }
 
-function getItem() {
+function getItem(sortBy) {
+
+   
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
     var list = hostContext.get_web().get_lists().getByTitle(listTitle);
-    var item = list.getItemById(itemId);
-    var title = item.get_item("Title");
-    alert(title);
+    //Ska ta ut en specifik sökning i listan 
+    var caml = new SP.CamlQuery();
+    
+    returnedItems = list.getItems(caml);
+    context.load(returnedItems);
+    context.executeQueryAsync(onQuerySucceeded, onQueryFailed);
 
-    //list.getItems("Title");
-    //var item =  list.getItemById("Description");
-    //list.set_item("MediaType", newMediaType);
-
-    list.update();
-    context.executeQueryAsync(listUpdateSuccess, listUpdateFail);
 }
+
+function onQuerySucceeded(sender, args) {
+
+    var enumerator = returnedItems.getEnumerator();
+    var markup = "<ul>Items:";
+    while (enumerator.moveNext()) {
+        var listItem = enumerator.get_current();
+        var curentID = listItem.get_id();
+        if (curentID == itemId) {
+             document.getElementById("titleInput").value = listItem.get_item("Title");
+             document.getElementById("descriptionInput").value = listItem.get_item("Description");
+
+             function setSelectedIndex(s, v) {
+
+                 for (var i = 0; i < s.options.length; i++) {
+
+                     if (s.options[i].text == v) {
+
+                         s.options[i].selected = true;
+
+                         return;
+
+                     }
+
+                 }
+
+             }
+
+             setSelectedIndex(document.getElementById("selectMedia"), listItem.get_item("MediaType"));
+
+
+        }
+        }
+    }
+   
+
+
+
+
+
+
+function onQueryFailed(sender , args)
+{
+    alert("Request failed. " + args.get_message() +
+     "\n" + args.get_stackTrace());
+}
+
 
 function updateListItem(newTitle, newDescription, newMediaType) {
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
