@@ -57,8 +57,8 @@ function initializePage() {
 
     function createListItem(titleInput, descriptionInput, mediaTypeInput) {
         console.log("createListItem");
-        var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
-     
+        //var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+        var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
@@ -89,7 +89,8 @@ function initializePage() {
     }
     function redirectToRootPage()
     {
-        var appWebUrl = decodeURIComponent(getQueryStringParameter("SPAppWebUrl"));
+
+        var appWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));
         GoToPage(appWebUrl + "/Pages/Default.aspx", true);
     }
 
