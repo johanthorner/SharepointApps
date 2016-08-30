@@ -18,5 +18,6 @@
     <File Path="Scripts\CreateItemPageScript.js" Url="Scripts/CreateItemPageScript.js" ReplaceContent="TRUE" />
     <File Path="Scripts\CreateListInHostWeb.js" Url="Scripts/CreateListInHostWeb.js" ReplaceContent="TRUE" />
     <File Path="Scripts\ListProperties.js" Url="Scripts/ListProperties.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\editItemScript.js" Url="Scripts/editItemScript.js" ReplaceContent="TRUE" />
   </Module>
 </Elements>

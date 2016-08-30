@@ -90,7 +90,11 @@ function initializePage() {
     function redirectToRootPage()
     {
 
-        var appWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));
+        var appWebUrl = window.location.protocol + "//" + window.location.host
+                + _spPageContextInfo.webServerRelativeUrl;
         GoToPage(appWebUrl + "/Pages/Default.aspx", true);
+        
     }
 
+  
+  

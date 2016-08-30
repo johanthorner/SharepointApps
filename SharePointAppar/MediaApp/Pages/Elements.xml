@@ -3,5 +3,6 @@
   <Module Name="Pages">
     <File Path="Pages\Default.aspx" Url="Pages/Default.aspx" ReplaceContent="TRUE" />
     <File Path="Pages\AddNewMediaType.aspx" Url="Pages/AddNewMediaType.aspx" ReplaceContent="TRUE" />
+    <File Path="Pages\EditListItem.aspx" Url="Pages/EditListItem.aspx" ReplaceContent="TRUE" />
   </Module>
 </Elements>

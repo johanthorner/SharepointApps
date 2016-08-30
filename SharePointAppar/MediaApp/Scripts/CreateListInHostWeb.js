@@ -19,7 +19,7 @@ function getQueryStringParameter(param) {
 }
 
 function checkIfListExistsInHostWeb() {
-    var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));  //Kanske måste ändra permissions i App-manifästet. 
+    var hostWebUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));
     var context = SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 

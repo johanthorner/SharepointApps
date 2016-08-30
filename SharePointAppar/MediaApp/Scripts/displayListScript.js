@@ -58,7 +58,7 @@ function initializePage() {
         while (enumerator.moveNext()) {
             var listItem = enumerator.get_current();
             var curentID = listItem.get_id();
-            markup += "<li> ID: " + curentID + " Title: " + listItem.get_item("Title") + "Media type: " + listItem.get_item("MediaType") + "<input type='button' value='Remove' onclick='RemoveItemPrompt(" + curentID + ");' />" + "</li>";
+            markup += "<li> ID: " + curentID + " Title: " + listItem.get_item("Title") + "Media type: " + listItem.get_item("MediaType") + "<input type='button' value='Remove' onclick='RemoveItemPrompt(" + curentID + ");' />" + "<input type='button' value='Edit' onclick='EditItem(" + curentID + ");' />" + "</li>";
             }
         markup += "</ul>";
         document.getElementById("MediaListDisplay").innerHTML = markup;
@@ -105,4 +105,12 @@ function initializePage() {
         alert("Somthing went wrong");
     }
     
+    function EditItem(id) {
 
+        console.log("redirectEditListItem körs");
+        localStorage.id = id;
+        var appWebUrl = window.location.protocol + "//" + window.location.host
+                + _spPageContextInfo.webServerRelativeUrl;
+        GoToPage(appWebUrl + "/Pages/EditListItem.aspx",true);
+    }
+   
