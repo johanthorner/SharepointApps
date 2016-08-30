@@ -9,20 +9,13 @@
 <%-- The markup and script in the following Content element will be placed in the <head> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script type="text/javascript" src="../Scripts/jquery-1.9.1.min.js"></script>
-    <SharePoint:ScriptLink Name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
+    <SharePoint:ScriptLink name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
     <meta name="WebPartPageExpansion" content="full" />
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
-    
-    <script src="../Scripts/ListProperties.js"></script>
-    <script src="../Scripts/CreateListInHostWeb.js"></script>
-    <!-- Add your JavaScript to the following file -->
-    <script src="../Scripts/CreateMediaList.js"></script>
-    <script src="../Scripts/displayListScript.js"></script>
-    <script src="../Scripts/redirectScript.js"></script>
-    <script src="../Scripts/WebStorage.js"></script>
 
+    <!-- Add your JavaScript to the following file -->
     <script type="text/javascript" src="../Scripts/App.js"></script>
 </asp:Content>
 
@@ -34,20 +27,11 @@
 <%-- The markup and script in the following Content element will be placed in the <body> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
 
-    <div id="MediaListDisplay">
-        <p id="">
+    <div>
+        <p id="message">
             <!-- The following content will be replaced with the user name when you run the app - see App.js -->
             initializing...
         </p>
     </div>
-    
-    <button id="redirectToRootButton" type="button" onclick="clickCounterRedirectToRoot()">redirectToRootPage</button>
-    <button id="redirectToAddNewMedia" type="button" onclick="clickCounterRedirectToAddNewMedia()">redirectToMediaPage</button>
-    <button id="FilterMoviesButton" type="button" onclick="">Movies</button>
-    <button id="FilterBooksButton" type="button" onclick="">Books</button>
-    <button id="FilterMusicBotton" type="button" onclick="">Music</button>
-
-
-    <div id="clickResult"></div>
 
 </asp:Content>

@@ -24,56 +24,35 @@ function initializePage() {
         redirectAddNewMedia();
     });
 
-   
-    //fungerar inte atm - "not defined"?
-    function redirectToRootPage() {
-        var appWebUrl = decodeURIComponent(getQuerryStringParameter("SPAppWebUrl"));
+       function redirectToRootPage() {
+           var appWebUrl = window.location.protocol + "//" + window.location.host
+                + _spPageContextInfo.webServerRelativeUrl;
         GoToPage(appWebUrl + "/Pages/Default.aspx", true);
-    };
+       };
+
     function onGetUserNameSuccess() {
         //Redirect kod här..
         console.log("Redirecting to page..");
     }
-    function onGetUserNameFail()
-    {
+
+    function onGetUserNameFail() {
         console.log("Page redirect error");
     }
 
-   
-    //fungerar inte atm - "not defined"?
-    //TODO - Fixa, denna eller alt.2
-    function getQuerryStringParameter(param) {
-        var params = document.URL.split("?")[1].split("&");
-        for (var i = 0; i < params.length; i = i + 1) {
-            var singelParam = params[i].split("=");
-            if (singelParam[0] == param) {
-                return singelParam[1];
-            }
-        }
-    }
+
     function redirectAddNewMedia() {
         console.log("redirectAddNewMedia körs");
 
-        var appWebUrl = decodeURIComponent(getQuerryStringParameter("SPAppWebUrl"));
+        var appWebUrl = window.location.protocol + "//" + window.location.host
+                + _spPageContextInfo.webServerRelativeUrl;
         GoToPage(appWebUrl + "/Pages/AddNewMediaType.aspx", true);
        }
 
     function onRedirectToMediaPageSuccess() {
-        document.getElementById("message").innerHTML = "";
+        console.log("Successfully redirected to Media Page");
     }
 
     function onRedirectToMediaPageFail() {
-        document.getElementById("message").innerHTML = "Failed to redirect to new page...";
+        console.log("Failed to redirect to new page...");
     }
-
-
-    //fungerar inte alls - error 404
-    //TODO - Fixa, denna eller alt1.
-    //var mediaPageAppWeb = decodeURIComponent(getQuerryStringParameter('SPAppWebUrl'));
-
-    //GoToPage(mediaPageAppWeb + "/MediaApp/AddNewMediaType", true);
-
-
-   
-
 }
