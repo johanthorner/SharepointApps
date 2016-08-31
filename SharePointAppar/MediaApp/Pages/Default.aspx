@@ -19,10 +19,11 @@
         @import 'https://fonts.googleapis.com/css?family=Lato';
     </style>
 
+    
+    <!-- Add your JavaScript to the following file -->
+    
     <script src="../Scripts/ListProperties.js"></script>
     <script src="../Scripts/CreateListInHostWeb.js"></script>
-    <!-- Add your JavaScript to the following file -->
-    <script src="../Scripts/CreateMediaList.js"></script>
     <script src="../Scripts/displayListScript.js"></script>
     <script src="../Scripts/redirectScript.js"></script>
     <script src="../Scripts/WebStorage.js"></script>

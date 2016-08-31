@@ -5,6 +5,7 @@ var returnedItems = null;
 function initializePage() {
     
     $(document).ready(function () {
+        localStorage.lastSelectedValue =  
         displayList("All");
        
     });
@@ -14,15 +15,15 @@ function initializePage() {
     
     movieBtn.addEventListener("click", function() {
         console.log("Filter by movies");
-        displayList("Movie");
+        displayList(listProperties.movie);
     });
     musicBtn.addEventListener("click", function () {
         console.log("Filter by music");
-        displayList("Music");
+        displayList(listProperties.music);
     });
     booksBtn.addEventListener("click", function () {
         console.log("Filter by books");
-        displayList("Book");
+        displayList(listProperties.book);
     });
   
 
@@ -109,3 +110,8 @@ function initializePage() {
     }
    
 //TODO använd webbstorage för att spara vad listan var filtrerad på senast.
+//TODO: Se till så att listan updateras (visuellt) när en sak tagits bort
+//TODO: Skapa en redirectknapp på editITem sidan
+//TODO: snygga till listan dra knapparna till höger.
+//TODO: ge feedback när ett item uppdaterats.
+//TODO: lägg alla listpropertys ett i ett eget namespace

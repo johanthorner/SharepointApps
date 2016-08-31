@@ -3,7 +3,7 @@
 ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 
 function initializePage() {
-    fillSelectMediaList(mediaOptions);
+    fillSelectMediaList(listProperties.mediaOptions);
 
     var SubmitItemDataBtn = document.getElementById("SubmitItemData");
 
@@ -14,7 +14,7 @@ function initializePage() {
         var selectMediaList = document.getElementById("selectMedia");
         var SelectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
 
-        createListItem(titleInput, descriptionInput, mediaOptions[SelectedMediaIndex]);
+        createListItem(titleInput, descriptionInput, listProperties.mediaOptions[SelectedMediaIndex]);
 
     });
 

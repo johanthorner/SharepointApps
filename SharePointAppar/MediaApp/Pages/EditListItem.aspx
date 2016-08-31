@@ -39,13 +39,13 @@
             <br />
             <input id="SubmitItemData" type="submit" value="UpdateItem" /><br />
         </form>
-
-
-
-    </div>
-    <div id="EditItemMessage">
+  <div id="EditItemMessage">
         
     </div>
+
+
+    </div>
+  
 
 </asp:Content>
 

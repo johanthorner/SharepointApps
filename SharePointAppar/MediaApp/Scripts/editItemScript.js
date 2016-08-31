@@ -5,9 +5,10 @@ ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 var itemId = localStorage.id;
 var returnedItems = null;
 function initializePage() {
-    getItem();
-    fillSelectMediaList(mediaOptions);
    
+    getItem();
+    fillSelectMediaList(listProperties.mediaOptions);
+    
    
 var submitItemDataBtn = document.getElementById("SubmitItemData");
 
@@ -19,8 +20,8 @@ var submitItemDataBtn = document.getElementById("SubmitItemData");
         var selectMediaList = document.getElementById("selectMedia");
         var selectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
 
-        updateListItem(titleInput, descriptionInput, mediaOptions[selectedMediaIndex]);
-
+        updateListItem(titleInput, descriptionInput, listProperties.mediaOptions[selectedMediaIndex]);
+        
     });
 }
 
@@ -30,7 +31,7 @@ function fillSelectMediaList(mediaOptions) {
 
     if (selectMediaList) {
         for (var i = 0; i < mediaOptions.length; i++) {
-            addOption(selectMediaList, mediaOptions[i], i);
+            addOption(selectMediaList, listProperties.mediaOptions[i], i);
         }
     }
 }
@@ -62,7 +63,6 @@ function getItem(sortBy) {
 function onQuerySucceeded(sender, args) {
 
     var enumerator = returnedItems.getEnumerator();
-    var markup = "<ul>Items:";
     while (enumerator.moveNext()) {
         var listItem = enumerator.get_current();
         var curentID = listItem.get_id();
@@ -129,6 +129,7 @@ function updateListItem(newTitle, newDescription, newMediaType) {
     context.executeQueryAsync(listUpdateSuccess, listUpdateFail);
 }
 function listUpdateSuccess() {
+  
     console.log("List id" + itemId + "Updated");
     redirectToRootPage();
 
