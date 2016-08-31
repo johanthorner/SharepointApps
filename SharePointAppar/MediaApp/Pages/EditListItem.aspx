@@ -37,7 +37,7 @@
             <select id="selectMedia"></select>
             <br />
             <br />
-            <input id="SubmitItemData" type="submit" value="Update Item" /><br />
+            <input id="SubmitItemData" type="submit" value="UpdateItem" /><br />
         </form>
 
 

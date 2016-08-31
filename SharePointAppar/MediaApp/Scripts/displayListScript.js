@@ -108,3 +108,4 @@ function initializePage() {
         GoToPage(appWebUrl + "/Pages/EditListItem.aspx",true);
     }
    
+//TODO använd webbstorage för att spara vad listan var filtrerad på senast.

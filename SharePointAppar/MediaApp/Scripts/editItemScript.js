@@ -7,10 +7,11 @@ var returnedItems = null;
 function initializePage() {
     getItem();
     fillSelectMediaList(mediaOptions);
+   
+   
+var submitItemDataBtn = document.getElementById("SubmitItemData");
 
-    var submitItemDataBtn = document.getElementById("SubmitItemData");
-
-    submitItemDataBtn.addEventListener("click", function () {
+        submitItemDataBtn.addEventListener("click", function () {
         console.log("Submit button presed");
         var titleInput = document.getElementById("titleInput").value;
         var descriptionInput = document.getElementById("descriptionInput").value;
@@ -86,44 +87,55 @@ function onQuerySucceeded(sender, args) {
              }
 
              setSelectedIndex(document.getElementById("selectMedia"), listItem.get_item("MediaType"));
+            
 
-
-        }
         }
     }
+  
+    }
    
-
-
-
-
-
-
 function onQueryFailed(sender , args)
 {
     alert("Request failed. " + args.get_message() +
      "\n" + args.get_stackTrace());
 }
 
+function redirectToRootPage() {
+    console.log("Redirect to root...")
+    var appWebUrl = window.location.protocol + "//" + window.location.host
+            + _spPageContextInfo.webServerRelativeUrl;
+    GoToPage(appWebUrl + "/Pages/Default.aspx", true);
+}
+
+
 
 function updateListItem(newTitle, newDescription, newMediaType) {
+   
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-    var list = hostContext.get_web().get_lists().getByTitle(itemId);
+    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
 
-    list.set_item("Title", newTitle);
-    list.set_item("Description", newDescription);
-    list.set_item("MediaType", newMediaType);
+    
+    var newListItem = list.getItemById(itemId);
 
-    list.update();
+    newListItem.set_item("Title", newTitle);
+    newListItem.set_item("Description", newDescription);
+    newListItem.set_item("MediaType", newMediaType);
+
+    newListItem.update();
+    context.load(newListItem);
     context.executeQueryAsync(listUpdateSuccess, listUpdateFail);
-
 }
 function listUpdateSuccess() {
     console.log("List id" + itemId + "Updated");
+    redirectToRootPage();
+
 }
 
 function listUpdateFail() {
     console.log("Error List id" + itemId + "Not Updated");
+    redirectToRootPage();
 }
+//TODO: redirect to root efter att item updaterats
