@@ -2,6 +2,7 @@
 
 ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 var returnedItems = null;
+
 function initializePage() {
     
     $(document).ready(function () {
@@ -27,6 +28,7 @@ function initializePage() {
     });
   
     function displayList(sortBy) {
+        sessionStorage.lastKnownFilter = sortBy;
         console.log("Display funktion körs");
         var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = new SP.ClientContext.get_current();

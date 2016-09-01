@@ -41,7 +41,7 @@
         </form>
         <div id="EditItemMessage"></div>
     </div>
-    <button id="redirectToRootFromEdit" onclick="redirectToRootFromEdit()">Go to Rootpage</button>
+    <button id="redirectToRootFromEdit" type="button" >Go to Rootpage</button>
 
 
 </asp:Content>

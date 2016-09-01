@@ -19,8 +19,15 @@ function initializePage() {
         var selectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
 
         updateListItem(titleInput, descriptionInput, listProperties.mediaOptions[selectedMediaIndex]);
-
+       
     });
+
+    var redirectToRootFromEditBtn = document.getElementById("redirectToRootFromEdit");
+    redirectToRootFromEditBtn.addEventListener("click", function () {
+
+        redirectToRootPageFromEdit();
+    });
+
 }
 
 function fillSelectMediaList(mediaOptions) {
@@ -84,14 +91,6 @@ function onGetItemFail(sender, args) {
      "\n" + args.get_stackTrace());
 }
 
-function redirectToRootPage() {
-    console.log("Redirect to root...");
-    var appWebUrl = window.location.protocol + "//" + window.location.host
-            + _spPageContextInfo.webServerRelativeUrl;
-    GoToPage(appWebUrl + "/Pages/Default.aspx", true);
-}
-
-
 function updateListItem(newTitle, newDescription, newMediaType) {
 
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
@@ -115,25 +114,19 @@ function updateListItem(newTitle, newDescription, newMediaType) {
 function listUpdateSuccess() {
 
     console.log("List id" + itemId + "Updated");
-    redirectToRootPage();
+    
 }
 
 function listUpdateFail() {
     console.log("Error List id" + itemId + "Not Updated");
-    redirectToRootPage();
+  
 }
-//TODO: redirect to root efter att item updaterats
 
-var redirectToRootFromEditBtn = document.getElementById("redirectToRootFromEdit");
-
-redirectToRootFromEditBtn.addEventListener("click", function () {
-    redirectToRootFromEdit();
-});
-
-function redirectToRootFromEdit() {
-    console.log("redirectToRootFromEdit körs");
-
+function redirectToRootPageFromEdit() {
+    console.log("Redirect to root...");
     var appWebUrl = window.location.protocol + "//" + window.location.host
             + _spPageContextInfo.webServerRelativeUrl;
+    
     GoToPage(appWebUrl + "/Pages/Default.aspx", true);
+    
 }
