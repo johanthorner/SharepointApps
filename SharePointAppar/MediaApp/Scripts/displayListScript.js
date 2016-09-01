@@ -5,7 +5,7 @@ var returnedItems = null;
 function initializePage() {
     
     $(document).ready(function () {
-        localStorage.lastSelectedValue =  
+        
         displayList("All");
        
     });
@@ -26,16 +26,13 @@ function initializePage() {
         displayList(listProperties.book);
     });
   
-
-    
     function displayList(sortBy) {
-
         console.log("Display funktion körs");
         var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-        var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+        var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
         //Ska ta ut en specifik sökning i listan 
         var caml = new SP.CamlQuery();
         if (sortBy !== "All") {
@@ -45,11 +42,9 @@ function initializePage() {
         returnedItems = list.getItems(caml);
         context.load(returnedItems);
         context.executeQueryAsync(onQuerySucceeded, onQueryFailed);
-
     }
 
     function onQuerySucceeded(sender, args) {
-
         var enumerator = returnedItems.getEnumerator();
         var markup = "<ul>Items:";
         while (enumerator.moveNext()) {
@@ -60,9 +55,6 @@ function initializePage() {
         markup += "</ul>";
         document.getElementById("MediaListDisplay").innerHTML = markup;
         }
-
-    //TODO: ta bort item i listan
-      
     }
 
     function onQueryFailed(sender , args)
@@ -85,7 +77,7 @@ function initializePage() {
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-        var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+        var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
         
         var myListItem = list.getItemById(itemId);
         myListItem.deleteObject();
@@ -109,7 +101,7 @@ function initializePage() {
         GoToPage(appWebUrl + "/Pages/EditListItem.aspx",true);
     }
    
-//TODO använd webbstorage för att spara vad listan var filtrerad på senast.
+//TODO: använd webbstorage för att spara vad listan var filtrerad på senast.
 //TODO: Se till så att listan updateras (visuellt) när en sak tagits bort
 //TODO: Skapa en redirectknapp på editITem sidan
 //TODO: snygga till listan dra knapparna till höger.

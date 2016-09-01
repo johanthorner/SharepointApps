@@ -5,14 +5,12 @@ ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 var itemId = localStorage.id;
 var returnedItems = null;
 function initializePage() {
-   
     getItem();
     fillSelectMediaList(listProperties.mediaOptions);
-    
-   
-var submitItemDataBtn = document.getElementById("SubmitItemData");
 
-        submitItemDataBtn.addEventListener("click", function () {
+    var submitItemDataBtn = document.getElementById("SubmitItemData");
+
+    submitItemDataBtn.addEventListener("click", function () {
         console.log("Submit button presed");
         var titleInput = document.getElementById("titleInput").value;
         var descriptionInput = document.getElementById("descriptionInput").value;
@@ -21,7 +19,7 @@ var submitItemDataBtn = document.getElementById("SubmitItemData");
         var selectedMediaIndex = selectMediaList.options[selectMediaList.selectedIndex].value;
 
         updateListItem(titleInput, descriptionInput, listProperties.mediaOptions[selectedMediaIndex]);
-        
+
     });
 }
 
@@ -31,71 +29,59 @@ function fillSelectMediaList(mediaOptions) {
 
     if (selectMediaList) {
         for (var i = 0; i < mediaOptions.length; i++) {
-            addOption(selectMediaList, listProperties.mediaOptions[i], i);
+            fillSelectMediaListAddOption(selectMediaList, listProperties.mediaOptions[i], i);
         }
     }
 }
 
-function addOption(selectBox, text, value) {
+function fillSelectMediaListAddOption(selectBox, text, value) {
     var optn = document.createElement("OPTION");
     optn.text = text;
     optn.value = value;
     selectBox.options.add(optn);
 }
 
-function getItem(sortBy) {
-
-   
+function getItem() {
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+    var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
     //Ska ta ut en specifik sökning i listan 
     var caml = new SP.CamlQuery();
-    
+
     returnedItems = list.getItems(caml);
     context.load(returnedItems);
-    context.executeQueryAsync(onQuerySucceeded, onQueryFailed);
-
+    context.executeQueryAsync(onGetItemSucceeded, onGetItemFail);
 }
 
-function onQuerySucceeded(sender, args) {
-
+function onGetItemSucceeded(sender, args) {
     var enumerator = returnedItems.getEnumerator();
     while (enumerator.moveNext()) {
         var listItem = enumerator.get_current();
         var curentID = listItem.get_id();
         if (curentID == itemId) {
-             document.getElementById("titleInput").value = listItem.get_item("Title");
-             document.getElementById("descriptionInput").value = listItem.get_item("Description");
+            document.getElementById("titleInput").value = listItem.get_item("Title");
+            document.getElementById("descriptionInput").value = listItem.get_item("Description");
 
-             function setSelectedIndex(s, v) {
+            function setSelectedIndex(s, v) {
 
-                 for (var i = 0; i < s.options.length; i++) {
+                for (var i = 0; i < s.options.length; i++) {
 
-                     if (s.options[i].text == v) {
+                    if (s.options[i].text == v) {
 
-                         s.options[i].selected = true;
+                        s.options[i].selected = true;
 
-                         return;
-
-                     }
-
-                 }
-
-             }
-
-             setSelectedIndex(document.getElementById("selectMedia"), listItem.get_item("MediaType"));
-            
-
+                        return;
+                    }
+                }
+            }
+            setSelectedIndex(document.getElementById("selectMedia"), listItem.get_item("MediaType"));
         }
     }
-  
-    }
-   
-function onQueryFailed(sender , args)
-{
+}
+
+function onGetItemFail(sender, args) {
     alert("Request failed. " + args.get_message() +
      "\n" + args.get_stackTrace());
 }
@@ -107,17 +93,15 @@ function redirectToRootPage() {
     GoToPage(appWebUrl + "/Pages/Default.aspx", true);
 }
 
-
-
 function updateListItem(newTitle, newDescription, newMediaType) {
-   
+
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+    var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
 
-    
+
     var newListItem = list.getItemById(itemId);
 
     newListItem.set_item("Title", newTitle);
@@ -128,8 +112,9 @@ function updateListItem(newTitle, newDescription, newMediaType) {
     context.load(newListItem);
     context.executeQueryAsync(listUpdateSuccess, listUpdateFail);
 }
+
 function listUpdateSuccess() {
-  
+
     console.log("List id" + itemId + "Updated");
     redirectToRootPage();
 

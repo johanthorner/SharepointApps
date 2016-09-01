@@ -10,7 +10,7 @@ function checkIfListExistsInHostWeb() {
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
     var context = SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
-    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+    var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
 
     context.load(list);
     context.executeQueryAsync(onGetListSuccess, onGetListFail);
@@ -32,7 +32,7 @@ function createlist() {
     var hostcontext = new SP.AppContextSite(currentcontext, hostWebUrl);
     var hostweb = hostcontext.get_web();
     var listCreationInfo = new SP.ListCreationInformation();
-    listCreationInfo.set_title(listTitle);
+    listCreationInfo.set_title(listProperties.listTitle);
     listCreationInfo.set_templateType(SP.ListTemplateType.announcements);
     var lists = hostweb.get_lists();
     var newList = lists.add(listCreationInfo);
@@ -55,7 +55,7 @@ function createColumns() {
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+    var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
 
     var fieldAuthor = list.get_fields().addFieldAsXml("<Field DisplayName=\'" + author + "\' Type=\'Text\' />", true, SP.AddFieldOptions.addToNoContentType);
     var fieldDescription = list.get_fields().addFieldAsXml("<Field DisplayName=\'" + description + "\' Type=\'Text\' />", true, SP.AddFieldOptions.addToNoContentType);
@@ -69,9 +69,7 @@ function createColumns() {
 
 function addColumnsSuccess() {
     console.log("Columns created successfully");
-    createListItem("Full Metal Jacket", "Classics", "Movie");
-    createListItem("Slottet", "Classics", "Book");
-    createListItem("The River", "Classics", "Music");
+    seedListWithDummyData(listProperties.seedListIsOn);
 }
 
 function addColumnsFail(sender, args) {
@@ -83,7 +81,7 @@ function createListItem(title, description, mediaType) {
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+    var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
 
     var itemCreateInfo = new SP.ListItemCreationInformation();
     var newListItem = list.addItem(itemCreateInfo);

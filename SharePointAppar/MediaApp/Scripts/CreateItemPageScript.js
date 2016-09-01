@@ -50,7 +50,7 @@ function createListItem(titleInput, descriptionInput, mediaTypeInput) {
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
-    var list = hostContext.get_web().get_lists().getByTitle(listTitle);
+    var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
 
     var itemCreateInfo = new SP.ListItemCreationInformation();
     var newListItem = list.addItem(itemCreateInfo);
@@ -67,13 +67,13 @@ function createListItem(titleInput, descriptionInput, mediaTypeInput) {
 
 function addItemSuccess() {
 
-    alert("list item skapades!: ");
+    console.log("list item skapades!: ");
 
 }
 
 function addItemFail() {
 
-    alert("Error (i funktionen addItemToList): ");
+    console.log("Error (i funktionen addItemToList): ");
 }
 function redirectToRootPage() {
 

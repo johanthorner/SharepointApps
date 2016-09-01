@@ -31164,7 +31164,7 @@ function sp_initialize() {
     SP.ChangeItemPropertyNames.itemId = 'ItemId';
     SP.ChangeItemPropertyNames.listId = 'ListId';
     SP.ChangeItemPropertyNames.listTemplate = 'ListTemplate';
-    SP.ChangeItemPropertyNames.listTitle = 'ListTitle';
+    SP.ChangeItemPropertyNames["listProperties.listTitle"] = 'ListTitle';
     SP.ChangeItemPropertyNames.serverRelativeUrl = 'ServerRelativeUrl';
     SP.ChangeItemPropertyNames.sharedByUser = 'SharedByUser';
     SP.ChangeItemPropertyNames.sharedWithUsers = 'SharedWithUsers';
