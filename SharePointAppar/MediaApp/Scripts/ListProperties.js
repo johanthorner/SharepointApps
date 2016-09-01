@@ -23,3 +23,5 @@ function seedListWithDummyData() {
     createListItem("Slottet", "Classics", "Book");
     createListItem("The River", "Classics", "Music");
 }
+
+var lastKnownFilter = sessionStorage.lastKnownFilter;
