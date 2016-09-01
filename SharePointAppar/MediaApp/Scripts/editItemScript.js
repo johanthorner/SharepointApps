@@ -41,7 +41,8 @@ function fillSelectMediaListAddOption(selectBox, text, value) {
     selectBox.options.add(optn);
 }
 
-function getItem() {
+function getItem(sortBy) {
+
     var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
     var context = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(context, hostWebUrl);
@@ -67,11 +68,8 @@ function onGetItemSucceeded(sender, args) {
             function setSelectedIndex(s, v) {
 
                 for (var i = 0; i < s.options.length; i++) {
-
                     if (s.options[i].text == v) {
-
                         s.options[i].selected = true;
-
                         return;
                     }
                 }
@@ -87,11 +85,12 @@ function onGetItemFail(sender, args) {
 }
 
 function redirectToRootPage() {
-    console.log("Redirect to root...")
+    console.log("Redirect to root...");
     var appWebUrl = window.location.protocol + "//" + window.location.host
             + _spPageContextInfo.webServerRelativeUrl;
     GoToPage(appWebUrl + "/Pages/Default.aspx", true);
 }
+
 
 function updateListItem(newTitle, newDescription, newMediaType) {
 
@@ -117,7 +116,6 @@ function listUpdateSuccess() {
 
     console.log("List id" + itemId + "Updated");
     redirectToRootPage();
-
 }
 
 function listUpdateFail() {
@@ -125,3 +123,17 @@ function listUpdateFail() {
     redirectToRootPage();
 }
 //TODO: redirect to root efter att item updaterats
+
+var redirectToRootFromEditBtn = document.getElementById("redirectToRootFromEdit");
+
+redirectToRootFromEditBtn.addEventListener("click", function () {
+    redirectToRootFromEdit();
+});
+
+function redirectToRootFromEdit() {
+    console.log("redirectToRootFromEdit körs");
+
+    var appWebUrl = window.location.protocol + "//" + window.location.host
+            + _spPageContextInfo.webServerRelativeUrl;
+    GoToPage(appWebUrl + "/Pages/Default.aspx", true);
+}
