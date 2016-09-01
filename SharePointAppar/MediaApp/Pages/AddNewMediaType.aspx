@@ -41,7 +41,7 @@
             <input id="SubmitItemData" type="submit" value="Add new item" /><br />
         </form>
 
-        <button id="redirectToRootButton" type="button">redirectToRootPage</button>
+        <button id="redirectToRootButton" type="button">Home</button>
 
     </div>
     <div id="CreateItemMessage">
