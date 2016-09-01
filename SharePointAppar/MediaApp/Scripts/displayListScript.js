@@ -6,9 +6,12 @@ var returnedItems = null;
 function initializePage() {
     
     $(document).ready(function () {
-        
-        displayList("All");
-       
+       if (sessionStorage.lastKnownFilter == null) {
+           displayList("All");
+       } else {
+           displayList(sessionStorage.lastKnownFilter);
+       }
+             
     });
     var movieBtn = document.getElementById("FilterMoviesButton");
     var musicBtn = document.getElementById("FilterMusicBotton");
@@ -29,7 +32,7 @@ function initializePage() {
   
     function displayList(sortBy) {
         sessionStorage.lastKnownFilter = sortBy;
-        console.log("Display funktion körs");
+        console.log(sessionStorage.lastKnownFilter);
         var hostWebUrl = _spPageContextInfo.siteAbsoluteUrl;
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
@@ -89,9 +92,11 @@ function initializePage() {
 
     function onItemDeleted() {
         alert("Item deleted:");
+        location.reload();
+       
     }
     function onItemNotDeleted() {
-        alert("Somthing went wrong");
+        alert("Somthing went wrong, item not removed");
     }
     
     function EditItem(id) {
@@ -103,9 +108,9 @@ function initializePage() {
         GoToPage(appWebUrl + "/Pages/EditListItem.aspx",true);
     }
    
-//TODO: använd webbstorage för att spara vad listan var filtrerad på senast.
-//TODO: Se till så att listan updateras (visuellt) när en sak tagits bort
-//TODO: Skapa en redirectknapp på editITem sidan
+
+
+
 //TODO: snygga till listan dra knapparna till höger.
 //TODO: ge feedback när ett item uppdaterats.
 //TODO: lägg alla listpropertys ett i ett eget namespace
