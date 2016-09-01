@@ -14,14 +14,15 @@
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <style>
         @import 'https://fonts.googleapis.com/css?family=Lato';
     </style>
 
-    
+
     <!-- Add your JavaScript to the following file -->
-    
+
     <script src="../Scripts/ListProperties.js"></script>
     <script src="../Scripts/CreateListInHostWeb.js"></script>
     <script src="../Scripts/displayListScript.js"></script>
@@ -45,14 +46,19 @@
             initializing...
         </p>
     </div>
-
-    <button id="redirectToRootButton" type="button" onclick="clickCounterRedirectToRoot()">redirectToRootPage</button>
-    <button id="redirectToAddNewMedia" type="button" onclick="clickCounterRedirectToAddNewMedia()">redirectToMediaPage</button>
-    <button id="FilterMoviesButton" type="button" onclick="">Movies</button>
-    <button id="FilterBooksButton" type="button" onclick="">Books</button>
-    <button id="FilterMusicBotton" type="button" onclick="">Music</button>
-
-
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="FilterMoviesButton" class="filterBtn" type="button" onclick="">Movies</button>
+            <button id="FilterBooksButton" class="filterBtn" type="button" onclick="">Books</button>
+            <button id="FilterMusicBotton" class="filterBtn" type="button" onclick="">Music</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="redirectToRootButton" type="button" onclick="clickCounterRedirectToRoot()">Home</button>
+            <button id="redirectToAddNewMedia" type="button" onclick="clickCounterRedirectToAddNewMedia()">Create New Item</button>
+        </div>
+    </div>
     <div id="clickResult"></div>
 
 </asp:Content>

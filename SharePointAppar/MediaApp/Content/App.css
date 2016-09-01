@@ -23,21 +23,63 @@ body {
     background-color: skyblue;
 }
 
-#removeBtn {
-    font-family: 'Lato', sans-serif !important;
-    font-size: 18px !important;
-    background-color: skyblue !important;
-}
-
-#editBtn {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    background-color: skyblue;
-}
-
 #SubmitItemData {
     font-family: 'Lato', sans-serif;
     font-size: 18px;
     background-color: skyblue;
     padding-top: -10px;
+}
+
+.removeBtn {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 18px !important;
+    background-color: skyblue !important;
+}
+
+.editBtn {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 18px !important;
+    background-color: skyblue !important;
+}
+
+.filterBtn {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 18px !important;
+    background-color: skyblue !important;
+}
+
+.col-sm-4 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    float: left;
+}
+
+.col-sm-2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    float: left
+}
+
+#ID {
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+#Title {
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+#Type {
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+#fuskis {
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 100;
 }

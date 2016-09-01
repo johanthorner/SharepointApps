@@ -48,13 +48,13 @@ function initializePage() {
 
     function onQuerySucceeded(sender, args) {
         var enumerator = returnedItems.getEnumerator();
-        var markup = "<ul>Items:";
+        var markup = "<div class='row'><div class='col-sm-2' id='ID'>ID</div><div class='col-sm-2' id='Title'>Title</div><div class='col-sm-4' id='Type'>Type</div><div class='col-sm-4' id='fuskis'>,</div>";
         while (enumerator.moveNext()) {
             var listItem = enumerator.get_current();
             var curentID = listItem.get_id();
-            markup += "<li> ID: " + curentID + " Title: " + listItem.get_item("Title") + "Media type: " + listItem.get_item("MediaType") + "<input type='button' class='removeBtn' value='Remove' onclick='RemoveItemPrompt(" + curentID + ");' />" + "<input type='button' class='editBtn' value='Edit' onclick='EditItem(" + curentID + ");' />" + "</li>";
+            markup += "<div class='col-sm-2'>" + curentID + "</div><div class='col-sm-2'>" + listItem.get_item("Title") + "</div><div class='col-sm-4'>" + listItem.get_item("MediaType") + "</div><div class='col-sm-4'><input type='button' class='removeBtn' value='Remove' onclick='RemoveItemPrompt(" + curentID + ");' />" + "<input type='button' class='editBtn' value='Edit' onclick='EditItem(" + curentID + ");' />" + "</div>";
             }
-        markup += "</ul>";
+        markup += "</div>";
         document.getElementById("MediaListDisplay").innerHTML = markup;
         }
     }
