@@ -39,13 +39,10 @@
             <br />
             <input id="SubmitItemData" type="submit" value="UpdateItem" /><br />
         </form>
-  <div id="EditItemMessage">
-        
+        <div id="EditItemMessage"></div>
     </div>
+    <button id="redirectToRootFromEdit" onclick="redirectToRootFromEdit()">Go to Rootpage</button>
 
-
-    </div>
-  
 
 </asp:Content>
 
