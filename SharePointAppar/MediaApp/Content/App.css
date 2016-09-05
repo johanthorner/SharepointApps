@@ -10,6 +10,7 @@ body {
     font-size: 18px;
     background-color: skyblue;
     border-color: black !important;
+    border-radius: 8px;
 }
 
 #FilterMoviesButton {
@@ -17,14 +18,16 @@ body {
     font-size: 18px;
     background-color: skyblue;
     border-color: black !important;
+    border-radius: 8px;
 }
 
 #SubmitItemData {
     font-family: 'Lato', sans-serif;
     font-size: 18px;
     background-color: skyblue;
-    border: black !important;
-    padding-top: -10px;
+    border-color: black !important;
+    padding-top: -10px !important;
+    border-radius: 8px !important;
 }
 
 .removeBtn {
@@ -32,6 +35,7 @@ body {
     font-size: 18px !important;
     background-color: skyblue !important;
     border-color: black !important;
+    border-radius: 8px;
 }
 
 .editBtn {
@@ -39,6 +43,7 @@ body {
     font-size: 18px !important;
     background-color: skyblue !important;
     border-color: black !important;
+    border-radius: 8px;
 }
 
 .filterBtn {
@@ -46,6 +51,7 @@ body {
     font-size: 18px !important;
     background-color: skyblue !important;
     border-color: black !important;
+    border-radius: 8px;
 }
 
 .col-sm-4 {
@@ -89,6 +95,7 @@ body {
     font-size: 18px !important;
     background-color: skyblue !important;
     border-color: black !important;
+    border-radius: 8px;
 }
 
 #redirectToRootButton {
@@ -96,13 +103,7 @@ body {
     font-size: 18px !important;
     background-color: skyblue !important;
     border-color: black !important;
-}
-
-#SubmitItemData {
-    font-family: 'Lato', sans-serif !important;
-    font-size: 18px !important;
-    background-color: skyblue !important;
-    border-color: black !important;
+    border-radius: 8px;
 }
 
 /*#redirectToRootButton1 {
