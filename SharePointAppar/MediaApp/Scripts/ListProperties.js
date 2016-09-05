@@ -11,7 +11,7 @@ listProperties.movie = "Movie";
 listProperties.book = "Book";
 listProperties.music = "Music";
 listProperties.mediaOptions = [listProperties.movie, listProperties.book, listProperties.music];
-listProperties.listTitle = "HostWebList10";
+listProperties.listTitle = "HostWebList11";
 
 var author = "Author";
 var description = "Description";
