@@ -30,6 +30,7 @@ function initializePage() {
         displayList(listProperties.book);
     });
   
+    //Tar in en variabel - stringen SortBy - och sätter sessionstorage till sortBy
     function displayList(sortBy) {
         sessionStorage.lastKnownFilter = sortBy;
         console.log(sessionStorage.lastKnownFilter);
@@ -37,6 +38,7 @@ function initializePage() {
         var context = new SP.ClientContext.get_current();
         var hostContext = new SP.AppContextSite(context, hostWebUrl);
 
+        //hämtar listan
         var list = hostContext.get_web().get_lists().getByTitle(listProperties.listTitle);
         //Ska ta ut en specifik sökning i listan 
         var caml = new SP.CamlQuery();

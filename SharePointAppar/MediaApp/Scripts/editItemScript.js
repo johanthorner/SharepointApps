@@ -4,6 +4,7 @@ ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 
 var itemId = localStorage.id;
 var returnedItems = null;
+
 function initializePage() {
     getItem();
     fillSelectMediaList(listProperties.mediaOptions);

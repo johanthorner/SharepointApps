@@ -64,12 +64,10 @@
     </None>
     <Content Include="Scripts\CreateItemPageScript.js" />
     <Content Include="Scripts\CreateListInHostWeb.js" />
-    <Content Include="Scripts\CreateMediaList.js" />
     <Content Include="Scripts\displayListScript.js" />
     <Content Include="Scripts\editItemScript.js" />
     <Content Include="Scripts\Elements.xml" />
     <Content Include="Scripts\App.js" />
-    <Content Include="Scripts\JavaScript1.js" />
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
