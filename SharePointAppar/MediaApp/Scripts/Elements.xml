@@ -6,8 +6,6 @@
     <File Path="Scripts\jquery-1.9.1.min.js" Url="Scripts/jquery-1.9.1.min.js" ReplaceContent="TRUE" />
     <File Path="Scripts\jquery-1.9.1.js" Url="Scripts/jquery-1.9.1.js" ReplaceContent="TRUE" />
     <File Path="Scripts\jquery-1.9.1.intellisense.js" Url="Scripts/jquery-1.9.1.intellisense.js" ReplaceContent="TRUE" />
-    <File Path="Scripts\JavaScript1.js" Url="Scripts/JavaScript1.js" ReplaceContent="TRUE" />
-    <File Path="Scripts\CreateMediaList.js" Url="Scripts/CreateMediaList.js" ReplaceContent="TRUE" />
     <File Path="Scripts\SP.Core.js" Url="Scripts/SP.Core.js" ReplaceContent="TRUE" />
     <File Path="Scripts\SP.js" Url="Scripts/SP.js" ReplaceContent="TRUE" />
     <File Path="Scripts\SP.Runtime.js" Url="Scripts/SP.Runtime.js" ReplaceContent="TRUE" />

@@ -95,5 +95,22 @@ body {
     font-family: 'Lato', sans-serif !important;
     font-size: 18px !important;
     background-color: skyblue !important;
-    border-color: black !important; 
+    border-color: black !important;
 }
+
+#SubmitItemData {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 18px !important;
+    background-color: skyblue !important;
+    border-color: black !important;
+}
+
+/*#redirectToRootButton1 {
+        font-family: 'Lato', sans-serif !important;
+    font-size: 18px !important;
+    background-color: skyblue !important;
+    border-color: black !important;
+    width: 20em;
+    height: 2em;
+
+}*/

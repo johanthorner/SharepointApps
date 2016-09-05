@@ -25,7 +25,6 @@ function initializePage() {
     });
 }
 
-
 function fillSelectMediaList(mediaOptions) {
     console.log("Filling dropdown");
     var selectMediaList = document.getElementById("selectMedia");
@@ -66,15 +65,14 @@ function createListItem(titleInput, descriptionInput, mediaTypeInput) {
 }
 
 function addItemSuccess() {
-
     console.log("list item skapades!: ");
-
 }
 
 function addItemFail() {
 
     console.log("Error (i funktionen addItemToList): ");
 }
+
 function redirectToRootPage() {
 
     var appWebUrl = window.location.protocol + "//" + window.location.host
